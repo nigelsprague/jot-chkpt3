@@ -19,8 +19,8 @@
   <!-- SECTION -->
   <header>
     <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2">
-      <a class="navbar-brand" href="#">
-        <h4>Jot...</h4>
+      <a class="navbar-brand m-0" href="#">
+        <h4 class="m-0">Jot...</h4>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
         aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,13 +40,13 @@
   <main class="container-fluid my-3">
     <section class="row justify-content-center g-3">
       <div class="col-md-3">
-        <article class="card p-2">
+        <article class="card p-2 h-90">
           <p class="text-end"># Jots</p>
           <div class="mb-3">
             <p>Add a Jot</p>
-            <form id="createJot">
-              <input type="color">
-              <input type="text">
+            <form id="createJot" onsubmit="app.JotsController.createJot()">
+              <input id="color" type="color">
+              <input id="title" type="text" placeholder="Title">
               <button class="btn border-dark" type="submit">Create +</button>
             </form>
           </div>
@@ -62,8 +62,8 @@
         </article>
       </div>
 
-      <div id="activeArea" class="col-md-9">
-        <div class="card px-4 active-area">
+      <div class="col-md-9">
+        <div id="activeArea" class="card px-4 h-90">
           <section class="row m-0">
             <div class="col-1 p-0 ribbon"></div>
             <div class="col">
@@ -72,7 +72,7 @@
               <p class="mb-1">Last Updated:</p>
             </div>
           </section>
-          <textarea class="card h-100 p-4" name="activeJot" id="activeJot"></textarea>
+          <textarea class="card w-100 h-100 p-4" name="activeJot" id="activeJot"></textarea>
           <span class="text-end py-1">word count</span>
         </div>
       </div>

@@ -1,6 +1,10 @@
 /* BASIC STYLES HERE */
-.active-area {
-  height: 80vh;
+.h-90 {
+  height: 90vh;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 .ribbon {
