@@ -43,28 +43,30 @@
         <article class="card p-2 h-90">
           <p class="text-end"># Jots</p>
           <div class="mb-3">
-            <p>Add a Jot</p>
+            <label>Add a Jot</label>
             <form id="createJot" onsubmit="app.JotsController.createJot()">
-              <input id="color" type="color">
-              <input id="title" type="text" placeholder="Title">
-              <button class="btn border-dark" type="submit">Create +</button>
+              <section class="row m-0">
+                <input class="col-1 p-0" id="color" type="color" required>
+                <input class="col-6" id="title" type="text" placeholder="Title" minlength="3" maxlength="15" required>
+                <button class="col-5 btn border-dark" type="submit">Create+</button>
+              </section>
             </form>
           </div>
-          <div id="jotList">
-            <div class="border-dark border-start px-1 mb-3">
+          <div class="jot-list" id="jotList">
+            <!-- <div style="border-left: 1px solid black;" class="px-1 mb-3">
               <section class="row m-0 justify-content-between align-items-baseline">
                 <h5 class="col px-0">Notes</h5>
                 <h6 class="col px-0 text-end">8/30/2024</h6>
               </section>
               <p class="ps-1">Note body wawawawaw blah sodidgfhjeorigfj</p>
-            </div>
+            </div> -->
           </div>
         </article>
       </div>
 
       <div class="col-md-9">
         <div id="activeArea" class="card px-4 h-90">
-          <section class="row m-0">
+          <!-- <section class="row m-0">
             <div class="col-1 p-0 ribbon"></div>
             <div class="col">
               <h2>Notes</h2>
@@ -73,7 +75,7 @@
             </div>
           </section>
           <textarea class="card w-100 h-100 p-4" name="activeJot" id="activeJot"></textarea>
-          <span class="text-end py-1">word count</span>
+          <span class="text-end py-1">word count</span> -->
         </div>
       </div>
     </section>

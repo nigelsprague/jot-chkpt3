@@ -7,9 +7,19 @@
   width: 100%;
 }
 
+.jot-list {
+  overflow-y: auto;
+}
+
+.body-preview {
+  opacity: .8;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
 .ribbon {
-  background: rgb(2, 0, 36);
-  background: linear-gradient(180deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
   max-width: 1.75em;
   max-height: 75%;
 }
