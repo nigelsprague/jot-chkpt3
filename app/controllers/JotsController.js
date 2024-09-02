@@ -33,6 +33,9 @@ export class JotsController {
     let jotListHTML = ''
     jot.forEach(jot => jotListHTML += jot.JotListTemplate)
     setHTML('jotList', jotListHTML)
+
+    let jotCount = document.getElementById('jot-count')
+    jotCount.innerText = jot.length + ' Jots'
   }
 
   drawActiveJot() {
