@@ -12,7 +12,21 @@ class JotsService {
     const jots = AppState.jots
     const newJot = new Jot(jotFormData)
     jots.push(newJot)
+    this.setActiveJot(newJot.id)
   }
+
+  updateJot(updatedBody) {
+    const jot = AppState.activeJot
+    jot.body = updatedBody
+    jot.updatedAt = new Date()
+    AppState.emit('activeJot')
+    AppState.emit('jots')
+  }
+
+  deleteJot() {
+
+  }
+
 }
 
 export const jotsService = new JotsService()

@@ -5,7 +5,7 @@ export class Jot {
     this.id = data.id || generateId()
     this.title = data.title
     this.color = data.color
-    this.body = data.body || ''
+    this.body = data.body || ""
     this.createdAt = data.createdAt || new Date()
     this.updatedAt = data.updatedAt || this.createdAt
     this.wordCount = 0
@@ -25,15 +25,19 @@ export class Jot {
   get ActiveJotTemplate() {
     return `
     <section class="row m-0">
-            <div class="col-1 p-0 ribbon" style="background-color: ${this.color};"></div>
-            <div class="col">
-              <h2>${this.title}</h2>
-              <p class="mb-1">Created on: ${this.createdDate}</p>
-              <p class="mb-1">Last Updated: ${this.editedDate}</p>
-            </div>
-          </section>
-          <textarea class="card w-100 h-100 p-4" name="activeJot" id="activeJot">${this.body}</textarea>
-          <span class="text-end py-1">${this.wordCount} words</span>`
+      <div class="col-1 p-0 ribbon" style="background-color: ${this.color};"></div>
+      <div class="col">
+        <h2>${this.title}</h2>
+        <p class="mb-1">Created on: ${this.createdDate}</p>
+        <p class="mb-1">Last Updated: ${this.editedDate}</p>
+      </div>
+      <div class="col d-flex justify-content-end">
+      <button onclick="app.JotsController.deleteJot()" class="btn border-danger mb-1 align-self-end" type="button">
+<span class="mdi mdi-delete"></span></button>
+      </div>
+    </section>
+    <textarea onblur="app.JotsController.updateJot()" class="card w-100 h-100 p-4" name="activeJot" id="activeJot">${this.body}</textarea>
+    <span class="text-end py-1">${this.wordCount} words</span>`
   }
 
   get createdDate() {

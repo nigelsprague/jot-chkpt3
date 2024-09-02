@@ -23,3 +23,11 @@
   max-width: 1.75em;
   max-height: 75%;
 }
+
+.mdi-delete {
+  color: #890012;
+}
+
+.border-red {
+  border-color: #890012;
+}

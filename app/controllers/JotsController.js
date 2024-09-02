@@ -1,4 +1,5 @@
 import { AppState } from "../AppState.js";
+import { Jot } from "../models/Jot.js";
 import { jotsService } from "../services/JotsService.js";
 import { getFormData } from "../utils/FormHandler.js";
 import { setHTML } from "../utils/Writer.js";
@@ -16,10 +17,8 @@ export class JotsController {
     event.preventDefault()
     const jotForm = event.target
     const jotFormData = getFormData(jotForm)
-    debugger
     jotsService.createJot(jotFormData)
     console.log('jot created', jotFormData)
-
     this.clearForm()
   }
 
@@ -41,10 +40,16 @@ export class JotsController {
   drawActiveJot() {
     const jot = AppState.activeJot
     setHTML('activeArea', jot.ActiveJotTemplate)
-    document.getElementById('activeJot').focus()
   }
 
   setActiveJot(jotId) {
     jotsService.setActiveJot(jotId)
+    console.log(jotId, Jot)
+  }
+
+  updateJot() {
+    const textAreaElem = event.target
+    const updatedBody = textAreaElem.value
+    jotsService.updateJot(updatedBody)
   }
 }
