@@ -6,8 +6,8 @@ export class Jot {
     this.title = data.title
     this.color = data.color
     this.body = data.body || ""
-    this.createdAt = data.createdAt || new Date()
-    this.updatedAt = data.updatedAt || this.createdAt
+    this.createdAt = this.createdDate || new Date()
+    this.updatedAt = data.updatedAt || ""
     this.wordCount = 0
   }
 
@@ -28,11 +28,11 @@ export class Jot {
       <div class="col-1 p-0 ribbon" style="background-color: ${this.color};"></div>
       <div class="col">
         <h2>${this.title}</h2>
-        <p class="mb-1">Created on: ${this.createdDate}</p>
-        <p class="mb-1">Last Updated: ${this.editedDate}</p>
+        <p class="mb-1">Created on: <time>${this.createdDate}</time></p>
+        <p class="mb-1">Last Updated: <time>${this.updatedTime}</time></p>
       </div>
       <div class="col d-flex justify-content-end">
-      <button onclick="app.JotsController.deleteJot()" class="btn border-danger mb-1 align-self-end" type="button">
+      <button onclick="app.JotsController.deleteJot('${this.id}')" class="btn border-danger mb-1 align-self-end" type="button">
 <span class="mdi mdi-delete"></span></button>
       </div>
     </section>
@@ -40,11 +40,17 @@ export class Jot {
     <span class="text-end py-1">${this.wordCount} words</span>`
   }
 
-  get createdDate() {
-    return this.createdAt.toLocaleDateString()
+  get defaultJotTemplate() {
+    return `
+    <img class="mt-5" src="/assets/img/undraw_open_note_6nva.png" alt="">
+          <p class="text-center">Select a Jot to start Jotting!</p>`
   }
 
-  get editedDate() {
+  get createdDate() {
+    return new Date().toLocaleDateString()
+  }
+
+  get updatedTime() {
     return this.updatedAt.toLocaleString()
   }
 }

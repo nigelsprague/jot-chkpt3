@@ -1,5 +1,6 @@
 import { AppState } from "../AppState.js";
 import { Jot } from "../models/Jot.js";
+import { loadState, saveState } from "../utils/Store.js";
 
 class JotsService {
   setActiveJot(jotId) {
@@ -13,6 +14,8 @@ class JotsService {
     const newJot = new Jot(jotFormData)
     jots.push(newJot)
     this.setActiveJot(newJot.id)
+
+    this.saveJots()
   }
 
   updateJot(updatedBody) {
@@ -21,12 +24,25 @@ class JotsService {
     jot.updatedAt = new Date()
     AppState.emit('activeJot')
     AppState.emit('jots')
+
+    this.saveJots()
   }
 
-  deleteJot() {
-
+  deleteJot(jotId) {
+    const jots = AppState.jots
+    const jotIndex = jots.findIndex(jot => jot.id == jotId)
+    jots.splice(jotIndex, 1)
+    this.setActiveJot()
   }
 
+  saveJots() {
+    saveState('jots', AppState.jots)
+  }
+
+  loadJots() {
+    const jotsFromLocalStorage = loadState('jots', [Jot])
+    AppState.jots = jotsFromLocalStorage
+  }
 }
 
 export const jotsService = new JotsService()
