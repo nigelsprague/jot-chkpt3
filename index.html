@@ -43,11 +43,12 @@
         <article class="card p-2 h-90">
           <p class="text-end"># Jots</p>
           <div class="mb-3">
-            <label>Add a Jot</label>
+            <span>Add a Jot</span>
             <form id="createJot" onsubmit="app.JotsController.createJot()">
               <section class="row m-0">
-                <input class="col-1 p-0" id="color" type="color" required>
-                <input class="col-6" id="title" type="text" placeholder="Title" minlength="3" maxlength="15" required>
+                <input class="col-1 p-0" id="color" name="color" type="color" required>
+                <input class="col-6" id="title" name="title" type="text" placeholder="Title" minlength="3"
+                  maxlength="15" required>
                 <button class="col-5 btn border-dark" type="submit">Create+</button>
               </section>
             </form>

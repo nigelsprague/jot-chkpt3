@@ -16,8 +16,9 @@ export class JotsController {
     event.preventDefault()
     const jotForm = event.target
     const jotFormData = getFormData(jotForm)
+    debugger
     jotsService.createJot(jotFormData)
-    console.log('jot created')
+    console.log('jot created', jotFormData)
 
     this.clearForm()
   }
